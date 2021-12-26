@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css')}}">
+</head>
+<body>
+  <div class="container">
+    <section>
+      <form enctype="multipart/form-data" method="post">
+		{{ form.hidden_tag() }}
+		<label>
+          {{form.title()}}
+          <div class="label-text">Заголовок</div>
+        </label>
+		<label>
+          <p><input type="file" name="f"></p>
+        </label>
+		<label>
+          {{form.body()}}
+          <div class="label-text">Описание</div>
+        </label>
+        <input type="submit" value="Отправить">
+      </form>
+    </section>
+  </div>
+</body>
+</html>

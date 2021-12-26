@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css')}}">
+</head>
+<body>
+  <div class="container">
+    <section>
+      <form action="" method="post" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+        <label>
+          {{form.username()}}
+          <div class="label-text">Логин</div>
+        </label>
+		<label>
+          {{form.first_name()}}
+          <div class="label-text">Имя</div>
+        </label>
+		<label>
+          {{form.last_name()}}
+          <div class="label-text">Фамилия</div>
+        </label>
+        <label>
+          {{form.email()}}
+          <div class="label-text">Email</div>
+        </label>
+        <label>
+          {{form.password()}}
+          <div class="label-text">Пароль</div>
+        </label>
+		<label>
+          {{form.confirm_password()}}
+          <div class="label-text">Подтвердить пароль</div>
+        </label>
+		<label>
+          <p><input type="file" name="f"></p>
+        </label>
+        <input type="submit" value="Отправить" class="btn_new">
+      </form>
+    </section>
+  </div>
+</body>
+</html>

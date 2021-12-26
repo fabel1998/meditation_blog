@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css')}}">
+</head>
+<body>
+  <div class="container">
+    <section>
+      <form method="POST" action="{{url_for('posts.add_post')}}">
+		{{ form.hidden_tag() }}
+        <label>
+          {{form.title()}}
+          <div class="label-text">Название статьи</div>
+        </label>
+		<label>
+          {{form.body()}}
+          <div class="label-text">Текст статьи</div>
+        </label>
+        {{form.submit(class="btn_new")}}
+      </form>
+    </section>
+  </div>
+</body>
+</html>

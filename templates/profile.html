@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/ui.css')}}">
+</head>
+    <body>
+		
+        <div class="main-container">
+
+            <!-- HEADER -->
+            <header class="block">
+                <ul class="header-menu horizontal-list">
+                    <li>
+                        <a class="header-menu-tab" href="{{url_for('index')}}"><span ></span>Главная</a>
+                    </li>
+                    <li>
+                        <a class="header-menu-tab" href="{{url_for('blog')}}"><span "></span>Блог</a>
+                    </li>
+                    <li>
+                        <a class="header-menu-tab" href="{{url_for('video')}}"><span "></span>Видео</a>
+                    </li>
+                    <li>
+                        <a class="header-menu-tab" href="{{url_for('music')}}"><span "></span>Аудио</a>
+                    </li>
+                </ul>
+            </header>
+
+            <!-- LEFT-CONTAINER -->
+            <div class="left-container container">
+                <div class="menu-box block"> <!-- MENU BOX (LEFT-CONTAINER) -->
+                    <h2 class="titular">Пользователь</h2>
+                    <ul class="menu-box-menu">
+                        <li>
+                            <a class="menu-box-tab" >Email: {{ current_user.email }}</a>          
+                        </li>
+                        <li>
+							<a class="menu-box-tab" >Login: {{ current_user.username }}</a> 
+                        </li>
+                        <li>
+							<a class="menu-box-tab" >Имя: {{ current_user.first_name }}</a>  
+                        </li>
+                        <li>
+                            <a class="menu-box-tab" >Фамилия: {{ current_user.last_name }}</a>
+                        </li>                       
+                    </ul>
+                </div> 
+            </div>
+
+            <!-- MIDDLE-CONTAINER -->
+            <div class="middle-container container">
+                <div class="profile block"> <!-- PROFILE (MIDDLE-CONTAINER) -->
+                    <a class="add-button" href="#28"><span class="icon entypo-plus scnd-font-color"></span></a>
+                    <div class="profile-picture big-profile-picture clear">
+                        <img width="150px" src="static/media/{{current_user.img_name}}" >
+                    </div>
+                    <h1 class="user-name">{{ current_user.first_name }} {{ current_user.last_name }}</h1>
+                    <div class="profile-description">
+                        <p class="scnd-font-color">Lorem ipsum dolor sit amet consectetuer adipiscing</p>
+                    </div>
+                    <ul class="profile-options horizontal-list">
+                        <li><p><span class="icon fontawesome-heart-empty scnd-font-color"></span>{{current_user.liked.count()}}</li></p>
+                    </ul>
+                </div>
+                <div class="weather block clear"> <!-- WEATHER (MIDDLE-CONTAINER) -->
+
+				<h2>{{current_user.liked.all()}}</h2>
+
+                </div> 
+            </div>
+        </div> <!-- end main-container -->
+    </body>
+</html>

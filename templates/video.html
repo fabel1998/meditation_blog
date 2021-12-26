@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-full s-content__main">
+	 
+		 {% for video in videos %}
+
+			<p class="lead">
+				<a href="{{url_for('video_detail', slug=video.slug)}}">{{ video.title }}</a>
+			</p>
+			
+			<div class="s-content__media col-full">
+                <div class="video-container">
+                    <iframe src="static/media/{{ video.name }}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div> 
+            </div> <!-- end s-content__media -->
+
+			<p class="lead">
+				{{ video.body }}
+			</p>
+
+		 {% endfor %}
+	 
+</div>
+{% endblock content %}

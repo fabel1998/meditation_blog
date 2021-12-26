@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-full s-content__main">
+	 
+		 {% for post in posts %}
+
+			<p class="lead">
+				<a href="{{url_for('posts.post_detail', slug=post.slug)}}">{{ post.title }}</a>
+			</p>
+
+		 {% endfor %}
+	 
+</div>
+{% endblock content %}

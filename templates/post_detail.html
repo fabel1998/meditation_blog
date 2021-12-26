@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-full s-content__main">
+			<h2>{{post.title}}</h2>
+			<div class="tagcloud">
+				{% for tag in tags %}
+                    <a href="{{url_for('tag_detail', slug=tag.slug)}}">{{ tag.name }}</a>
+				{% endfor %}
+                </div> 
+			<p class="lead">{{ post.body }}</p> 
+	{% if current_user.is_authenticated %}
+        {% if current_user.has_liked_post(post) %}
+            <a class="like_button" href="{{ url_for('post_detail', slug=post.slug, action='unlike') }}">Unlike</a>
+        {% else %}
+            <a class="like_button" href="{{ url_for('post_detail', slug=post.slug, action='like') }}">Like</a>
+        {% endif %}
+        {{ post.likes.count() }} likes
+    {% else %}
+        {{ post.likes.count() }} likes
+    {% endif %}
+</div>
+{% endblock content %}

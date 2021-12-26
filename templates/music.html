@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-full s-content__main">
+	 
+		 {% for music in musics %}
+
+			<p class="lead">
+				<a href="{{url_for('music_detail', slug=music.slug)}}">{{ music.title }}</a>
+			</p>
+			<div class="audio-wrap">
+                <audio id="player" src="static/media/{{music.name}}" width="50%" height="42" controls="controls"></audio>
+            </div>
+			<p class="lead">
+				{{ music.body }}
+			</p>
+
+		 {% endfor %}
+	 
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css')}}">
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{{ false }}
+  <div class="container">
+    <section>
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <label>
+          {{form.username()}}
+          <div class="label-text">Логин</div>
+        </label>
+        <label>
+          {{form.password()}}
+          <div class="label-text">Пароль</div>
+        </label>
+        {{form.submit(class="btn_new")}}
+      </form>
+    </section>
+  </div>
+</body>
+</html>
